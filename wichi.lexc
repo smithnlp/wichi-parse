@@ -1,0 +1,74 @@
+!!!wichi.lexc!!!
+
+!!!TODO: classifiers (animals an objects), tense, number, gender on nouns
+
+Multichar_Symbols %<V%> %<1SUB.Sg%> %<1SUB.Pl.Incl%> %<1SUB.Pl.Excl%>
+                        %<2SUB%>    %<2SUB.Sg%>
+                        %<3SUB%>    %<3SUB.Sg%>
+                        %<1OBJ%>    %<1OBJ.Sg%>      %<1OBJ.Pl%>
+                        %<2OBJ%>    %<2OBJ.Sg%>      %<2OBJ.Pl%>
+                        %<3OBJ%>    %<3OBJ.Sg%>      %<3OBJ.Pl%>
+                  %<N%> %<PosCLSF%> %<UNK%>
+                  lh fw MH NH YH WH PH TH KH CH%" ch
+
+LEXICON Root
+
+Noun    ;
+Subject ;
+
+LEXICON Noun
+
+asinoj                              NounInf;
+!!! dependent/inalienable
+!!! independent/alienable
+
+LEXICON NounInf
+
+%<N%>:0                             #;
+
+LEXICON Subject
+
+%<1SUB.Sg%>:n'^                     Verb;
+%<1SUB.Pl.Incl%>:to^                Verb;
+%<1SUB.Pl.Incl%>:ta^                Verb;
+%<2SUB%>:la^                        Verb;
+%<3SUB%>:0                          Verb;
+
+LEXICON Verb
+
+chefwen                             VerbInf;
+nom                                 VerbInf;
+mo                                  VerbInf;
+w'en                                VerbInf;
+yahin                               VerbInf;
+t'ischey                            VerbInf;
+choj                                VerbInf;
+tefw                                VerbInf;
+kw'es                               VerbInf;
+w'elh                               VerbInf;
+lej                                 VerbInf;
+fwet                                VerbInf;
+pak                                 VerbInf;
+yik                                 VerbInf;
+tsek                                VerbInf;
+chim                                VerbInf;
+w'atshan                            VerbInf;
+naloy                               VerbInf;
+yotaj                               VerbInf;
+amo                                 VerbInf;
+
+LEXICON VerbInf
+
+%<V%>:0                             Object;
+
+LEXICON Object
+
+%<1OBJ.Sg%>:^n'u                    Quant;
+%<1OBJ.Pl%>:^nam                    Quant;
+%<2OBJ%>:^'am                       Quant;
+%<3OBJ%>:0                          Quant;
+
+LEXICON Quant
+
+%<Sg%>:0                            #;
+%<Pl%>:^hen                         #;
