@@ -22,9 +22,9 @@ $ python3 morphoprocess.py manuscripts/inputfile.txt
 ```
 
 #### TODO
-- [x]
+- [x] create repo with all current work
 - [ ] use set() to remove duplicates, only analyze each token once
-- [ ] adjust the output of morphoprocess.py (pandas db)
+- [x] adjust the output of morphoprocess.py (pandas db)
 - [ ] write foma rules tuned to laureano's data
 
 #### LINKS
