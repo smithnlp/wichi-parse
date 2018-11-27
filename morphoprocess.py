@@ -8,7 +8,6 @@ import sys
 
 import pandas as pd
 from progress.bar import IncrementalBar
-from pprint import pprint
 
 
 def main():
@@ -17,7 +16,7 @@ def main():
 
     infilename = sys.argv[1]
     justname = infilename.split('.')[0]
-    outfilename = justname + '.out'
+    outfilename = './' + justname + '.pkl'
     with open(infilename, 'r') as f:
         intext = f.read().rstrip()
 
@@ -38,12 +37,13 @@ def main():
                                  stdin=proc1.stdout,
                                  stdout=subprocess.PIPE,
                                  universal_newlines=True)
-        for item in proc2.stdout:
-            outf.write(item)
-            morpho_data[t] = item
+
+        info = [item.strip().split('\t') for item in proc2.stdout if item is not '\n']  # noqa
+        if len(info[0]) < 1:
+            continue
 
         df = pd.DataFrame(morpho_data, index=[0])
-        pprint(df)
+        df.to_pickle(outfilename)
 
     bar.finish()
     outf.close()
