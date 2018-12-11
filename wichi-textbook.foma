@@ -1,5 +1,7 @@
 ### wichi.foma ###
 
+# Based on a textbook of Wichí at http://lenguawichi.com.ar/wp-content/uploads/2017/01/manual-gramatica-wichi-vol-1.original.pdf
+
 # Vowels
 define V [ a | e | i | o | u ];
 
@@ -11,30 +13,35 @@ define Lexicon;
 # account for the lengthening of j depending on vowel before it in HDeletion
 # fix K affrication UNCOMPILED
 
+################################################################################
+
 # K affrication: k changes to ch [e|i] and before another vowel
-# define KAffrication k -> ch || [e|i] _ ("^") ("%'") V ; # Must come b/f StopAsperation
+define KAffrication k -> ch || [e|i] _ ("^") ("%'") V ; # Must come b/f StopAsperation
 
 # Stop aspiration: voiceless stops become aspirated before -h
-# define StopAsperation p -> PH, t -> TH, k -> KH, ch -> CH || _ ("^") h ;
+define StopAsperation p -> PH, t -> TH, k -> KH, ch -> CH || _ ("^") h ;
 
 # Nasal & Glide devoicing: nasals & glides are devoiced and aspirated before -h
-# define NGDevoicing m -> MH, n -> NH, y -> YH, w -> WH || _ "^" h ;
+define NGDevoicing m -> MH, n -> NH, y -> YH, w -> WH || _ "^" h ;
 
 # H deletion: the -h of -hen disappears when preceded by nasals and glides
-# define HDeletion h -> 0 || [MH|NH|YH|WH|fw|s|lh|j] "^" _ e n ;
+define HDeletion h -> 0 || [MH|NH|YH|WH|fw|s|lh|j] "^" _ e n ;
 
 # J palatalization: j /x/ changes to sh /ʃ/ after [e|i] and before another vowel
-# define JPalatalization j -> sh || [e|i] _ ("^") V ; # Must come after HDeletion
-
-################################################################################
+define JPalatalization j -> sh || [e|i] _ ("^") V ; # Must come after HDeletion
 
 # Cleanup: remove morpheme boundaries
 define Cleanup "^" -> 0;
 
-read lexc wichi.lexc
+read lexc wichi2.lexc
 define Lexicon
 
 define Grammar Lexicon           .o.
+               KAffrication      .o.
+               StopAsperation    .o.
+               NGDevoicing       .o.
+               HDeletion         .o.
+               JPalatalization   .o.
                Cleanup;
 
 regex Grammar;

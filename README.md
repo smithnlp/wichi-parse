@@ -23,10 +23,11 @@ $ python3 morphoprocess.py manuscripts/inputfile.txt
 
 #### TODO
 - [x] create repo with all current work
-- [ ] use set() to remove duplicates, only analyze each token once
-- [x] adjust the output of morphoprocess.py (pandas db)
+- [x] adjust the output of morphoprocess.py (pandas dataframe, pickled)
 - [ ] write foma rules tuned to laureano's data
 
 #### LINKS
   * [foma morphology tutorial](https://fomafst.github.io/morphtut.html)
   * [foma intro](https://github.com/mhulden/foma/blob/master/foma/docs/simpleintro.md)
+  * [textbook of Wichí](http://lenguawichi.com.ar/wp-content/uploads/2017/01/manual-gramatica-wichi-vol-1.original.pdf)
+  * [dictionary of Wichí](http://www.languageconservation.org/images/Test/wichi%20dictionary_1.pdf)

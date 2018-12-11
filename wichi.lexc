@@ -1,6 +1,6 @@
 !!!wichi.lexc!!!
 
-!!!TODO: classifiers (animals an objects), tense, number, gender on nouns
+!!!TODO: Guesser using slot-filling
 
 Multichar_Symbols %<V%> %<1SUB.Sg%> %<1SUB.Pl.Incl%> %<1SUB.Pl.Excl%>
                         %<2SUB%>    %<2SUB.Sg%>
@@ -9,66 +9,170 @@ Multichar_Symbols %<V%> %<1SUB.Sg%> %<1SUB.Pl.Incl%> %<1SUB.Pl.Excl%>
                         %<2OBJ%>    %<2OBJ.Sg%>      %<2OBJ.Pl%>
                         %<3OBJ%>    %<3OBJ.Sg%>      %<3OBJ.Pl%>
                   %<N%> %<PosCLSF%> %<UNK%>
-                  lh fw MH NH YH WH PH TH KH CH%" ch
+                  lh th fw ch
+                  %<DET%> %<3POS.Pl%> %<3P.Pl%> %<1P.Pl.Excl%> %<3P.Sg%>
+                  %<1P.Sg%> %<IndObj%> %<COMING%> %<GOING%> %<AFFIX%> %<PST%>
+                  %<PREF%> %<SUFF%> %<1P.Pl.Pos%> %<DIMIN%> %<DEMON%> %<PLURAL%>
+                  %<AUG%>
 
 LEXICON Root
 
-Noun    ;
-Subject ;
+Noun        ;
+VerbSubject ;
+Verb        ;
+Classifier  ;
+Pronoun     ;
+Determiner  ;
+Affix       ;
 
 LEXICON Noun
 
 asinoj                              NounInf;
-!!! dependent/inalienable
-!!! independent/alienable
+atsina                              NounInf;
+fwala                               NounInf;
+lhayis                              NounInf;
+thayis                              NounInf;
+tela                                NounInf;
+honat                               NounInf;
+tañi                                NounInf;
+tewok                               NounInf;
+niyat                               NounInf;
+itoj                                NounInf;
 
 LEXICON NounInf
 
 %<N%>:0                             #;
+%<N%>:0                             Affix;
 
-LEXICON Subject
+LEXICON VerbSubject
 
-%<1SUB.Sg%>:n'^                     Verb;
+%<1SUB.Sg%>:na^                     Verb;
+%<1SUB.Sg%>:ni^                     Verb;
+%<1SUB.Sg%>:no^                     Verb;
 %<1SUB.Pl.Incl%>:to^                Verb;
 %<1SUB.Pl.Incl%>:ta^                Verb;
+%<1SUB.Pl.Excl%>:o^                 Verb;
 %<2SUB%>:la^                        Verb;
 %<3SUB%>:0                          Verb;
 
 LEXICON Verb
 
-chefwen                             VerbInf;
-nom                                 VerbInf;
-mo                                  VerbInf;
-w'en                                VerbInf;
+chufwen                             VerbInf;
+wen                                 VerbInf;
 yahin                               VerbInf;
-t'ischey                            VerbInf;
-choj                                VerbInf;
-tefw                                VerbInf;
-kw'es                               VerbInf;
-w'elh                               VerbInf;
-lej                                 VerbInf;
-fwet                                VerbInf;
-pak                                 VerbInf;
-yik                                 VerbInf;
-tsek                                VerbInf;
-chim                                VerbInf;
-w'atshan                            VerbInf;
-naloy                               VerbInf;
-yotaj                               VerbInf;
+tische                              VerbInf;
+tischey                             VerbInf;
 amo                                 VerbInf;
+welh                                VerbInf;
+yik                                 VerbInf;
+tichun                              VerbInf;
+iwu                                 VerbInf;
+yenlhi                              VerbInf;
+yenthi                              VerbInf;
+yiset                               VerbInf;
+tachahuye                           VerbInf;
+tachum                              VerbInf;
+tachume                             VerbInf;
+tek                                 VerbInf;
+talawk                              VerbInf;
+neche                               VerbInf;
+hape                                VerbInf;
 
 LEXICON VerbInf
 
-%<V%>:0                             Object;
+%<V%>:0                             #;
+%<V%>:0                             Affix;
 
-LEXICON Object
+LEXICON Affix
 
-%<1OBJ.Sg%>:^n'u                    Quant;
-%<1OBJ.Pl%>:^nam                    Quant;
-%<2OBJ%>:^'am                       Quant;
-%<3OBJ%>:0                          Quant;
+%<PLURAL%>:^hen                     #;
+%<COMING%>:^tso                     #;
+%<GOING%>:^tsi                      #;
+%<AFFIX%>:pej^                      Verb;
+%<AFFIX%>:pej^                      Affix;
+%<AFFIX%>:pej^                      VerbSubject;
+%<AFFIX%>:^pej                      #;
+%<AFFIX%>:pej                       #;
+%<PST%>:^pante                      #;
+%<PST%>:pante                       #;
+%<PREF%>:olhai^                     Verb;
+%<PREF%>:olhai^                     Affix;
+%<PREF%>:olhai^                     VerbSubject;
+%<PREF%>:lhai^                      Verb;
+%<PREF%>:lhai^                      Affix;
+%<PREF%>:lhai^                      VerbSubject;
+%<PREF%>:oya^                       Verb;
+%<PREF%>:oya^                       Affix;
+%<PREF%>:oya^                       VerbSubject;
+%<PREF%>:ona^                       Verb;
+%<PREF%>:ona^                       Affix;
+%<PREF%>:ona^                       VerbSubject;
+%<PREF%>:a^                         Verb;
+%<PREF%>:a^                         Affix;
+%<PREF%>:a^                         VerbSubject;
+%<PREF%>:le^                        Verb;
+%<PREF%>:le^                        Affix;
+%<PREF%>:le^                        VerbSubject;
+%<PREF%>:fwi^                       Verb;
+%<PREF%>:fwi^                       Affix;
+%<PREF%>:fwi^                       VerbSubject;
+%<PREF%>:math^                      Verb;
+%<PREF%>:math^                      Affix;
+%<PREF%>:math^                      VerbSubject;
+%<SUFF%>:^la                        #;
+%<SUFF%>:^lhi                       #;
+%<SUFF%>:^ta                        #;
+%<1P.Pl.Pos%>:lha^                  Verb;
+%<1P.Pl.Pos%>:lha^                  Affix;
+%<1P.Pl.Pos%>:lha^                  VerbSubject;
+%<DIMIN%>:^fwaj                     #;
+%<DIMIN%>:fwaj                      #;
+%<DEMON%>:^na                       #;
+%<DEMON%>:na                        #;
+%<PLURAL%>:^y                       #;
+%<PLURAL%>:^j                       #;
+%<PLURAL%>:^i                       #;
+%<PLURAL%>:^i                       Affix;
+%<AUG%>:^taj                        #;
+%<AUG%>:taj^                        Verb;
+%<AUG%>:taj^                        Affix;
+%<AUG%>:taj^                        VerbSubject;
+%<AUG%>:taj^                        #;
 
-LEXICON Quant
+LEXICON Pronoun
 
-%<Sg%>:0                            #;
-%<Pl%>:^hen                         #;
+%<1SUB.Sg%>:na                      #;
+%<1SUB.Sg%>:ni                      #;
+%<1SUB.Sg%>:no                      #;
+%<1SUB.Pl.Incl%>:to                 #;
+%<1SUB.Pl.Incl%>:ta                 #;
+%<1SUB.Pl.Excl%>:o                  #;
+%<3POS.Pl%>:la                      #;
+%<3P.Pl%>:thamel                    #;
+%<3P.Pl%>:lhamel                    #;
+%<1P.Pl.Excl%>:olhamel              #;
+%<3P.Sg%>:tham                      #;
+%<3P.Sg%>:lham                      #;
+%<1P.Sg%>:otham                     #;
+%<1P.Sg%>:olham                     #;
+%<IndObj%>:noho                     #;
+
+LEXICON Classifier
+
+ko                                  ClassifierInf;
+ka                                  ClassifierInf;
+lo                                  ClassifierInf;
+
+LEXICON ClassifierInf
+
+%<PosCLSF%>:0                       #;
+
+LEXICON Determiner
+
+ta                                  DeterminerInf;
+taha                                DeterminerInf;
+tanai                               DeterminerInf;
+
+LEXICON DeterminerInf
+
+%<DET%>:0                           #;

@@ -15,6 +15,7 @@ def main():
     morpho_data = dd(list)
 
     infilename = sys.argv[1]
+    print('\nProcessing', infilename, flush=True)  # noqa
     justname = infilename.split('.')[0]
     outfilename = './' + justname + '.pkl'
     with open(infilename, 'r') as f:
@@ -41,9 +42,10 @@ def main():
         info = [item.strip().split('\t') for item in proc2.stdout if item is not '\n']  # noqa
         if len(info[0]) < 1:
             continue
+        morpho_data[t] = info
 
-        df = pd.DataFrame(morpho_data, index=[0])
-        df.to_pickle(outfilename)
+    df = pd.DataFrame.from_dict(morpho_data, orient='index')
+    df.to_pickle(outfilename)
 
     bar.finish()
     outf.close()
